@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>TeamSorry Standup Landing</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">	
+
+	<meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.m
+	in.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+	</script>
+
+	<script type="text/javascript">
+		'use strict';
+
+	$(() => {
+		const demoDates = [
+				{date: new Date(2022, 1, 7, 14),  demoer: "#DK"},
+				{date: new Date(2022, 1, 21, 14), demoer: "#MC"},
+				{date: new Date(2022, 2, 7, 14),  demoer: "#JeM"},
+				{date: new Date(2022, 2, 21, 14), demoer: "#JaM"},
+				{date: new Date(2022, 3, 4, 14),  demoer: "#EH"},
+				{date: new Date(2022, 3, 18, 14), demoer: "#DK"},
+				{date: new Date(2022, 4, 2, 14),  demoer: "#BC"},
+				{date: new Date(2022, 4, 16, 14), demoer: "#DK"},
+				{date: new Date(2022, 4, 30, 14), demoer: "#MC"},
+				{date: new Date(2022, 5, 13, 14), demoer: "#JeM"},
+				{date: new Date(2022, 5, 27, 14), demoer: "#JaM"},
+				{date: new Date(2022, 6, 11, 14), demoer: "#EH"},
+				{date: new Date(2022, 6, 25, 14), demoer: "#KD"},
+				{date: new Date(2022, 7, 8, 14),  demoer: "#BC"}
+		]
+		$(demoDates.find((demoDate) => {
+				return demoDate >= Date();
+		}).demoer).css("color", "red");
+	});
+	</script>
+
+	<style>
+		body{
+			background-image: url("logo.png");
+		}
+		content{
+			padding-top: 20px;
+			background-color: #ffffff;
+			display: block;
+			width: 50%;
+			margin: 0 auto;
+			margin-top:100px;
+			align-content: center;
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<content>
+	<div class="container-fluid" id="intro_bar">
+		<div class="row justify-content-center">
+			<h1>Demo Duty</h1>
+		</div>
+		<div class="row justify-content-center">
+			<h5><span id="JeM">JeM</span> <span id="JaM">JaM</span> <span id="EH">EH</span> <span id="KD">KD</span> <span id="BC">BC</span> <span id="DK">DK</span> <span id="MC">MC</span></h5>
+		</div>
+	</div>
+	</content>
+</body>
+</html>
