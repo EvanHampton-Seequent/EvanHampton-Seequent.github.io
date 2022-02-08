@@ -18,24 +18,41 @@
 
 	$(() => {
 		const demoDates = [
-				{date: new Date(2022, 1, 7, 14),  demoer: "#DK"},
-				{date: new Date(2022, 1, 21, 14), demoer: "#MC"},
-				{date: new Date(2022, 2, 7, 14),  demoer: "#JeM"},
-				{date: new Date(2022, 2, 21, 14), demoer: "#JaM"},
-				{date: new Date(2022, 3, 4, 14),  demoer: "#EH"},
-				{date: new Date(2022, 3, 18, 14), demoer: "#DK"},
-				{date: new Date(2022, 4, 2, 14),  demoer: "#BC"},
-				{date: new Date(2022, 4, 16, 14), demoer: "#DK"},
-				{date: new Date(2022, 4, 30, 14), demoer: "#MC"},
-				{date: new Date(2022, 5, 13, 14), demoer: "#JeM"},
-				{date: new Date(2022, 5, 27, 14), demoer: "#JaM"},
-				{date: new Date(2022, 6, 11, 14), demoer: "#EH"},
-				{date: new Date(2022, 6, 25, 14), demoer: "#KD"},
-				{date: new Date(2022, 7, 8, 14),  demoer: "#BC"}
-		]
-		$(demoDates.find((demoDate) => {
-				return demoDate >= Date();
+				{date: new Date(2022, 1, 7, 14),  demoer: "#DK_demo"},
+				{date: new Date(2022, 1, 21, 14), demoer: "#MC_demo"},
+				{date: new Date(2022, 2, 7, 14),  demoer: "#JeM_demo"},
+				{date: new Date(2022, 2, 21, 14), demoer: "#JaM_demo"},
+				{date: new Date(2022, 3, 4, 14),  demoer: "#EH_demo"},
+				{date: new Date(2022, 3, 18, 14), demoer: "#KD_demo"},
+				{date: new Date(2022, 4, 2, 14),  demoer: "#BC_demo"},
+				{date: new Date(2022, 4, 16, 14), demoer: "#DK_demo"},
+				{date: new Date(2022, 4, 30, 14), demoer: "#MC_demo"},
+				{date: new Date(2022, 5, 13, 14), demoer: "#JeM_demo"},
+				{date: new Date(2022, 5, 27, 14), demoer: "#JaM_demo"},
+				{date: new Date(2022, 6, 11, 14), demoer: "#EH_demo"},
+				{date: new Date(2022, 6, 25, 14), demoer: "#KD_demo"},
+				{date: new Date(2022, 7, 8, 14),  demoer: "#BC_demo"}
+		];
+		$(demoDates.find((elem) => {
+				return elem.date >= new Date();
 		}).demoer).css("color", "red");
+    
+    const buildDates = [
+				{date: new Date(2022, 1, 8, 17),  triager: "#JeM_build"},
+				{date: new Date(2022, 1, 9, 17),  triager: "#JaM_build"},
+				{date: new Date(2022, 1, 10, 17), triager: "#EH_build"},
+				{date: new Date(2022, 1, 11, 17), triager: "#KD_build"},
+				{date: new Date(2022, 1, 14, 17), triager: "#BC_build"},
+				{date: new Date(2022, 1, 15, 17), triager: "#DK_build"},
+				{date: new Date(2022, 1, 16, 17), triager: "#MC_build"},
+				{date: new Date(2022, 1, 17, 17), triager: "#JeM_build"},
+				{date: new Date(2022, 1, 18, 17), triager: "#JaM_build"},
+				{date: new Date(2022, 1, 21, 17), triager: "#EH_build"}
+		];
+    $(buildDates.find((elem) => {
+				return elem.date >= new Date();
+		}).triager).css("color", "red");
+    
 	});
 	</script>
 
@@ -57,12 +74,20 @@
 </head>
 <body>
 	<content>
-	<div class="container-fluid" id="intro_bar">
+	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<h1>Demo Duty</h1>
 		</div>
 		<div class="row justify-content-center">
-			<h5><span id="JeM">JeM</span> <span id="JaM">JaM</span> <span id="EH">EH</span> <span id="KD">KD</span> <span id="BC">BC</span> <span id="DK">DK</span> <span id="MC">MC</span></h5>
+			<h5><span id="JeM_demo">JeM</span> <span id="JaM_demo">JaM</span> <span id="EH_demo">EH</span> <span id="KD_demo">KD</span> <span id="BC_demo">BC</span> <span id="DK_demo">DK</span> <span id="MC_demo">MC</span></h5>
+		</div>
+	</div>
+  <div class="container-fluid">
+		<div class="row justify-content-center">
+			<h1>Build Duty</h1>
+		</div>
+		<div class="row justify-content-center">
+			<h5><span id="JeM_build">JeM</span> <span id="JaM_build">JaM</span> <span id="EH_build">EH</span> <span id="KD_build">KD</span> <span id="BC_build">BC</span> <span id="DK_build">DK</span> <span id="MC_build">MC</span></h5>
 		</div>
 	</div>
 	</content>
