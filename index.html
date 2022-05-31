@@ -1,101 +1,101 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>TeamSorry Standup Landing</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">	
+    <title>TeamSorry Standup Landing</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">    
 
-	<meta charset="utf-8">
+    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
-	</script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.m
-	in.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-	</script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.m
+    in.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
+    </script>
 
-	<script type="text/javascript">
-		'use strict';
+    <script type="text/javascript">
+        'use strict';
 
-	$(() => {
-		const demoDates = [
-				{date: new Date(2022, 1, 7,  14),  demoer: "#DK_demo"},
-				{date: new Date(2022, 1, 21, 14),  demoer: "#MC_demo"},
-				{date: new Date(2022, 2, 14, 14),  demoer: "#JeM_demo"},
-				{date: new Date(2022, 2, 28, 14),  demoer: "#JaM_demo"},
-				{date: new Date(2022, 3, 11, 14),  demoer: "#EH_demo"},
-				{date: new Date(2022, 3, 25, 14),  demoer: "#KD_demo"},
-				{date: new Date(2022, 4, 9,  14),  demoer: "#BC_demo"},
-				{date: new Date(2022, 4, 23, 14),  demoer: "#DK_demo"},
-				{date: new Date(2022, 5, 13, 14),  demoer: "#MC_demo"},
-				{date: new Date(2022, 5, 27, 14),  demoer: "#CC_demo"},
-				{date: new Date(2022, 6, 11, 14),  demoer: "#LH_demo"},
-				{date: new Date(2022, 6, 25, 14),  demoer: "#JeM_demo"},
-				{date: new Date(2022, 7, 8,  14),  demoer: "#JaM_demo"},
-				{date: new Date(2022, 7, 22, 14),  demoer: "#EH_demo"}
-		];
-		$(demoDates.find((elem) => {
-				return elem.date >= new Date();
-		}).demoer).css("color", "red");
+    $(() => {
+        const demoDates = [
+                {date: new Date(2022, 1, 7,  14),  demoer: "#DK_demo"},
+                {date: new Date(2022, 1, 21, 14),  demoer: "#MC_demo"},
+                {date: new Date(2022, 2, 14, 14),  demoer: "#JeM_demo"},
+                {date: new Date(2022, 2, 28, 14),  demoer: "#JaM_demo"},
+                {date: new Date(2022, 3, 11, 14),  demoer: "#EH_demo"},
+                {date: new Date(2022, 3, 25, 14),  demoer: "#KD_demo"},
+                {date: new Date(2022, 4, 9,  14),  demoer: "#BC_demo"},
+                {date: new Date(2022, 4, 23, 14),  demoer: "#DK_demo"},
+                {date: new Date(2022, 5, 13, 14),  demoer: "#MC_demo"},
+                {date: new Date(2022, 5, 27, 14),  demoer: "#CC_demo"},
+                {date: new Date(2022, 6, 11, 14),  demoer: "#LH_demo"},
+                {date: new Date(2022, 6, 25, 14),  demoer: "#JeM_demo"},
+                {date: new Date(2022, 7, 8,  14),  demoer: "#JaM_demo"},
+                {date: new Date(2022, 7, 22, 14),  demoer: "#EH_demo"}
+        ];
+        $(demoDates.find((elem) => {
+                return elem.date >= new Date();
+        }).demoer).css("color", "red");
     
     const buildDates = [
-				{date: new Date(2022, 3, 26, 0), triager: "#MC_build"},
-				{date: new Date(2022, 4, 10, 0), triager: "#BC_build"},
-				{date: new Date(2022, 4, 24, 0), triager: "#EH_build"},
-				{date: new Date(2022, 5, 6,  0), triager: "#KD_build"},
-				{date: new Date(2022, 5, 13, 0), triager: "#JaM_build"},
-				{date: new Date(2022, 5, 20, 0), triager: "#CC_build"},
-				{date: new Date(2022, 5, 27, 0), triager: "#LH_build"},
-				{date: new Date(2022, 6, 4,  0), triager: "#JeM_build"},
-				{date: new Date(2022, 6, 11, 0), triager: "#DK_build"},
-				{date: new Date(2022, 6, 18, 0), triager: "#MC_build"},
-				{date: new Date(2022, 6, 25, 0), triager: "#BC_build"},
-				{date: new Date(2022, 7, 1,  0), triager: "#EH_build"},
-				{date: new Date(2022, 7, 8,  0), triager: "#KD_build"},
-				{date: new Date(2022, 7, 15, 0), triager: "#JaM_build"},
-				{date: new Date(2022, 7, 22, 0), triager: "#CC_build"},
-				{date: new Date(2022, 7, 29, 0), triager: "#LH_build"}
-		];
+                {date: new Date(2022, 3, 26, 0), triager: "#MC_build"},
+                {date: new Date(2022, 4, 10, 0), triager: "#BC_build"},
+                {date: new Date(2022, 4, 24, 0), triager: "#EH_build"},
+                {date: new Date(2022, 5, 6,  0), triager: "#KD_build"},
+                {date: new Date(2022, 5, 13, 0), triager: "#JaM_build"},
+                {date: new Date(2022, 5, 20, 0), triager: "#CC_build"},
+                {date: new Date(2022, 5, 27, 0), triager: "#LH_build"},
+                {date: new Date(2022, 6, 4,  0), triager: "#JeM_build"},
+                {date: new Date(2022, 6, 11, 0), triager: "#DK_build"},
+                {date: new Date(2022, 6, 18, 0), triager: "#MC_build"},
+                {date: new Date(2022, 6, 25, 0), triager: "#BC_build"},
+                {date: new Date(2022, 7, 1,  0), triager: "#EH_build"},
+                {date: new Date(2022, 7, 8,  0), triager: "#KD_build"},
+                {date: new Date(2022, 7, 15, 0), triager: "#JaM_build"},
+                {date: new Date(2022, 7, 22, 0), triager: "#CC_build"},
+                {date: new Date(2022, 7, 29, 0), triager: "#LH_build"}
+        ];
     $(buildDates.find((elem) => {
-				return elem.date >= new Date();
-		}).triager).css("color", "red");
+                return elem.date >= new Date();
+        }).triager).css("color", "red");
     
-	});
-	</script>
+    });
+    </script>
 
-	<style>
-		body{
-			background-image: url("logo.png");
-		}
-		content{
-			padding-top: 20px;
-			background-color: #ffffff;
-			display: block;
-			width: 50%;
-			margin: 0 auto;
-			margin-top:100px;
-			align-content: center;
-			text-align: center;
-		}
-	</style>
+    <style>
+        body{
+            background-image: url("logo.png");
+        }
+        content{
+            padding-top: 20px;
+            background-color: #ffffff;
+            display: block;
+            width: 50%;
+            margin: 0 auto;
+            margin-top:100px;
+            align-content: center;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-	<content>
-	<div class="container-fluid">
-		<div class="row justify-content-center">
-			<h1>Demo Duty</h1>
-		</div>
-		<div class="row justify-content-center">
-			<h5><span id="JeM_demo">JeM</span> <span id="JaM_demo">JaM</span> <span id="EH_demo">EH</span> <span id="KD_demo">KD</span> <span id="BC_demo">BC</span> <span id="DK_demo">DK</span> <span id="MC_demo">MC</span> <span id="CC_demo">CC</span> <span id="LH_demo">LH</span></h5>
-		</div>
-	</div>
+    <content>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <h1>Demo Duty</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h5><span id="JeM_demo">JeM</span> <span id="JaM_demo">JaM</span> <span id="EH_demo">EH</span> <span id="KD_demo">KD</span> <span id="BC_demo">BC</span> <span id="DK_demo">DK</span> <span id="MC_demo">MC</span> <span id="CC_demo">CC</span> <span id="LH_demo">LH</span></h5>
+        </div>
+    </div>
   <div class="container-fluid">
-		<div class="row justify-content-center">
-			<h1>Build Duty</h1>
-		</div>
-		<div class="row justify-content-center">
-			<h5><span id="JeM_build">JeM</span> <span id="DK_build">DK</span> <span id="MC_build">MC</span> <span id="BC_build">BC</span> <span id="EH_build">EH</span> <span id="KD_build">KD</span> <span id="JaM_build">JaM</span> <span id="CC_build">CC</span> <span id="LH_build">LH</span></h5>
-		</div>
-	</div>
-	</content>
+        <div class="row justify-content-center">
+            <h1>Build Duty</h1>
+        </div>
+        <div class="row justify-content-center">
+            <h5><span id="JeM_build">JeM</span> <span id="DK_build">DK</span> <span id="MC_build">MC</span> <span id="BC_build">BC</span> <span id="EH_build">EH</span> <span id="KD_build">KD</span> <span id="JaM_build">JaM</span> <span id="CC_build">CC</span> <span id="LH_build">LH</span></h5>
+        </div>
+    </div>
+    </content>
 </body>
 </html>
