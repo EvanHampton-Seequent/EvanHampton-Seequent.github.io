@@ -17,20 +17,29 @@
         'use strict';
 
         $(() => { // "main"
-            const millisecondsInAWeek = 7 * 24 * 60 * 60 * 1000;
-            const currentTime = new Date();
-            const weeksSinceEpoch = Math.floor(currentTime.getTime() / millisecondsInAWeek);
+            const millisecondsInADay = 24 * 60 * 60 * 1000;
+            const millisecondsInAWeek = 7 * millisecondsInADay;
+            const currentTime = Date.now();
+
+            // ----- Determine triager ----- //
+            const arbitraryMondayAtMidnight = new Date('July 3, 2023 00:00:00');
+            const weeksSinceArbitraryMonday = Math.floor((currentTime - arbitraryMondayAtMidnight) / millisecondsInAWeek);
+
+            const triagers = ["JaM", "KD", "LH", "MS", "SS", "JO", "EH"];
+            const triager = triagers[weeksSinceArbitraryMonday % triagers.length];
+
+            // ----- Determine demoer ----- //
+            const arbitraryFirstDemoOfIteration = new Date('June 12, 2023 18:30:00'); // O1 Demo
+            const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((currentTime - arbitraryFirstDemoOfIteration) / millisecondsInAWeek);
             const weeksInAnIteration = 13;
-            const iterationsSinceEpoch = weeksSinceEpoch * weeksInAnIteration;
+            const iterationsSinceArbitraryFirstDemoOfIteration = Math.floor(weeksSinceArbitraryFirstDemoOfIteration / weeksInAnIteration);
             const sprintsInAnIteration = 6;
-            const sprintsSinceEpoch = iterationsSinceEpoch * sprintsInAnIteration;
-            const weekOfIteration = weeksSinceEpoch % weeksInAnIteration;
+            const sprintsSinceArbitraryFirstDemoOfIteration = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration;
+            const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
-        
-            const triagers = ["LH", "MS", "SS", "JO", "EH", "JaM", "KD"];
-            const triager = triagers[weeksSinceEpoch % triagers.length];
-            const demoers = ["MS", "SS", "JO", "EH", "JaM", "KD", "LH"];
-            const demoer = demoers[(sprintsSinceEpoch + sprintOfIteration) % demoers.length];
+
+            const demoers = ["SS", "JO", "EH", "JaM", "KD", "LH", "MS"];
+            const demoer = demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
 
             $(`#${triager}_build`).css("color", "red");
             $(`#${demoer}_demo`).css("color", "red");
