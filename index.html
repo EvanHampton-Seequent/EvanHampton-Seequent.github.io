@@ -16,33 +16,33 @@
     <script type="text/javascript">
         'use strict';
 
-        $(() => { // "main"
-            const millisecondsInADay = 24 * 60 * 60 * 1000;
-            const millisecondsInAWeek = 7 * millisecondsInADay;
-            const currentTime = Date.now();
-
-            // ----- Determine triager ----- //
+        const millisecondsInAWeek = 7 * 24 * 60 * 60 * 1000;
+        const weeksInAnIteration = 13;
+        const sprintsInAnIteration = 6;
+        
+        function DetermineTriagerGivenDate(date){
             const arbitraryMondayAtMidnight = new Date('July 3, 2023 00:00:00');
-            const weeksSinceArbitraryMonday = Math.floor((currentTime - arbitraryMondayAtMidnight) / millisecondsInAWeek);
-
+            const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
+            
             const triagers = ["JaM", "KD", "LH", "MS", "SS", "JO", "EH"];
-            const triager = triagers[weeksSinceArbitraryMonday % triagers.length];
+            return triagers[weeksSinceArbitraryMonday % triagers.length];
+        }
 
-            // ----- Determine demoer ----- //
+        function DetermineDemoerGivenDate(date){
             const arbitraryFirstDemoOfIteration = new Date('June 12, 2023 18:30:00'); // O1 Demo
-            const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((currentTime - arbitraryFirstDemoOfIteration) / millisecondsInAWeek);
-            const weeksInAnIteration = 13;
+            const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((date - arbitraryFirstDemoOfIteration) / millisecondsInAWeek);
             const iterationsSinceArbitraryFirstDemoOfIteration = Math.floor(weeksSinceArbitraryFirstDemoOfIteration / weeksInAnIteration);
-            const sprintsInAnIteration = 6;
             const sprintsSinceArbitraryFirstDemoOfIteration = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration;
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
-
+            
             const demoers = ["SS", "JO", "EH", "JaM", "KD", "LH", "MS"];
-            const demoer = demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
+            return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
+        }
 
-            $(`#${triager}_build`).css("color", "red");
-            $(`#${demoer}_demo`).css("color", "red");
+        $(() => { // "main"
+            $(`#${DetermineTriagerGivenDate(Date.now())}_build`).css("color", "red");
+            $(`#${DetermineDemoerGivenDate(Date.now())}_demo`).css("color", "red");
         });
     </script>
 
