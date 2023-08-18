@@ -24,7 +24,7 @@
             const arbitraryMondayAtMidnight = new Date('July 3, 2023 00:00:00');
             const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
             
-            const triagers = ["JaM", "KD", "LH", "MS", "SS", "JO", "EH"];
+            const triagers = ["JaM", "KD", "LH", "MS", "SS", "EH", "JO"];
             return triagers[weeksSinceArbitraryMonday % triagers.length];
         }
 
@@ -36,7 +36,7 @@
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
             
-            const demoers = ["SS", "JO", "EH", "JaM", "KD", "LH", "MS"];
+            const demoers = ["SS", "EH", "JO", "JaM", "KD", "LH", "MS"];
             return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
         }
 
