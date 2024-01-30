@@ -36,7 +36,6 @@
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
             
-            //const demoers = ["JaM", "KD", "MS", "SS", "JM", "MC", "AE", "JO"];
             const demoers = ["AE", "JO", "JaM", "KD", "MS", "SS", "JM", "MC"];
             return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
         }
