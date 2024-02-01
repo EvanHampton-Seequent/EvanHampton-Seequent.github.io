@@ -27,16 +27,16 @@
             const triagers = ["JaM", "KD", "MS", "JM", "MC", "AE", "JO"];
             return triagers[weeksSinceArbitraryMonday % triagers.length];
         }
-
+ 
         function DetermineDemoerGivenDate(date){
-            const arbitraryFirstDemoOfIteration = new Date('January 1, 2024 18:30:00'); // O1 Demo
+            const arbitraryFirstDemoOfIteration = new Date('December 18, 2023 18:30:00'); // O1 Demo
             const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((date - arbitraryFirstDemoOfIteration) / millisecondsInAWeek);
             const iterationsSinceArbitraryFirstDemoOfIteration = Math.floor(weeksSinceArbitraryFirstDemoOfIteration / weeksInAnIteration);
             const sprintsSinceArbitraryFirstDemoOfIteration = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration;
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
             
-            const demoers = ["AE", "JO", "KD", "MS", "JM"];
+            const demoers = ["JM", "AE", "JO", "KD", "MS"];
             return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
         }
 
