@@ -29,7 +29,8 @@
         }
  
         function DetermineDemoerGivenDate(date){
-            const arbitraryFirstDemoOfIteration = new Date('December 18, 2023 18:30:00'); // O1 Demo
+            const arbitraryFirstDemoOfIteration = new Date('December 18, 2023 18:30:00'); // Q1 Demo
+
             const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((date - arbitraryFirstDemoOfIteration) / millisecondsInAWeek);
             const iterationsSinceArbitraryFirstDemoOfIteration = Math.floor(weeksSinceArbitraryFirstDemoOfIteration / weeksInAnIteration);
             const sprintsSinceArbitraryFirstDemoOfIteration = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration;
