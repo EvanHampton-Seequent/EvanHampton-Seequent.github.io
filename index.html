@@ -25,6 +25,7 @@
             const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
 
             const triagers = ["VC", "AE", "JO", "JaM", "CC", "KD", "MS", "JeM", "MC", "KK"];
+            return triagers[weeksSinceArbitraryMonday % triagers.length];
         }
  
         function DetermineDemoerGivenDate(date){
