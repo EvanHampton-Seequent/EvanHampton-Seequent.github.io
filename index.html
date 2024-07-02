@@ -24,7 +24,7 @@
             const arbitraryMondayAtMidnight = new Date('Novemember 6, 2023 00:00:00');
             const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
            
-            const triagers = ["VC", "AE", "JO", "JaM", "CC", "KD", "MS", "JeM", "MC", "KK"];
+            const triagers = ["AE", "JO", "JaM", "CC", "KD", "MS", "JeM", "MC", "KK", "VC"];
             return triagers[weeksSinceArbitraryMonday % triagers.length];
         }
  
