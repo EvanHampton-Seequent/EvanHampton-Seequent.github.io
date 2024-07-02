@@ -23,7 +23,7 @@
         function DetermineTriagerGivenDate(date){
             const arbitraryMondayAtMidnight = new Date('Novemember 6, 2023 00:00:00');
             const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
-           
+
             const triagers = ["AE", "JO", "JaM", "CC", "KD", "MS", "JeM", "MC", "KK", "VC"];
             return triagers[weeksSinceArbitraryMonday % triagers.length];
         }
@@ -42,7 +42,6 @@
         }
 
         $(() => { // "main"
-            //const testDate = new Date('June 17, 2024 1:00:00');
             $(`#${DetermineTriagerGivenDate(Date.now())}_build`).css("color", "red");
             $(`#${DetermineDemoerGivenDate(Date.now())}_demo`).css("color", "red");
         });
