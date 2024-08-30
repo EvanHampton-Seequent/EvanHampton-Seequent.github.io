@@ -24,7 +24,7 @@
             const arbitraryMondayAtMidnight = new Date('Novemember 6, 2023 00:00:00');
             const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
 
-            const triagers = ["AE", "JO", "JaM", "CC", "KD", "MS", "JeM", "MC", "KK", "VC"];
+            const triagers = ["KK", "VC", "JaM", "CC", "KD", "MS", "JeM", "MC"];
             return triagers[weeksSinceArbitraryMonday % triagers.length];
         }
  
@@ -37,7 +37,7 @@
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
             
-            const demoers = ["JeM", "KK", "VC", "AE", "JO", "CC", "KD", "MS"];
+            const demoers = [ "VC", "CC", "KD", "MS", "JeM", "KK"]
             return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
         }
 
@@ -70,7 +70,7 @@
             <h1>Demo Duty</h1>
         </div>
         <div class="row justify-content-center">
-            <h5><span id="JO_demo">JO</span> <span id="CC_demo">CC</span> <span id="KD_demo">KD</span> <span id="MS_demo">MS</span> <span id="JeM_demo">JeM</span> <span id="KK_demo">KK</span> <span id="VC_demo">VC</span> <span id="AE_demo">AE</span></h5>
+            <h5> <span id="CC_demo">CC</span> <span id="KD_demo">KD</span> <span id="MS_demo">MS</span> <span id="JeM_demo">JeM</span> <span id="KK_demo">KK</span> <span id="VC_demo">VC</span></h5>
         </div>
     </div>
   <div class="container-fluid">
@@ -78,7 +78,7 @@
             <h1>Build Duty</h1>
         </div>
         <div class="row justify-content-center">
-            <h5><span id="JO_build">JO</span> <span id="JaM_build">JaM</span>  <span id="CC_build">CC</span> <span id="KD_build">KD</span> <span id="MS_build">MS</span> <span id="JeM_build">JeM</span>  <span id="MC_build">MC</span> <span id="KK_build">KK</span> <span id="VC_build">VC</span> <span id="AE_build">AE</span> </h5>
+            <h5><span id="JaM_build">JaM</span>  <span id="CC_build">CC</span> <span id="KD_build">KD</span> <span id="MS_build">MS</span> <span id="JeM_build">JeM</span>  <span id="MC_build">MC</span> <span id="KK_build">KK</span> <span id="VC_build">VC</span></h5>
         </div>
     </div>
     </content>
