@@ -18,32 +18,29 @@
         const millisecondsInAWeek = 7 * 24 * 60 * 60 * 1000;
         const weeksInAnIteration = 13;
         const sprintsInAnIteration = 6;
-        let lastSelectedNames = JSON.parse(localStorage.getItem('lastSelectedNames')) || []; // Retrieve last selected names from localStorage
-        let currentIteration = JSON.parse(localStorage.getItem('currentIteration')) || 0;
         const startDate = new Date("2024-09-16T13:00:00"); // T1 Start Date
         const names = ["Kameel", "Mark", "Jesse", "Michael", "Vlad"/*, "Ken"*/];
 
-        function pickRandomNames() { // Function to pick 2 random names excluding the last selected ones
-            let availableNames = names.filter(name => !lastSelectedNames.includes(name));
+        function getSeededRandom(seed) {
+            const x = Math.sin(seed) * 10000;
+            return x - Math.floor(x);
+        }
+
+        function pickRandomNames(seed) { // Function to pick 2 random names using a seed
+            let availableNames = [...names];
             let selected = [];
 
             while (selected.length < 2) {
-            const randomIndex = Math.floor(Math.random() * availableNames.length);
-            selected.push(availableNames[randomIndex]);
-            availableNames.splice(randomIndex, 1); // Remove chosen name to avoid duplicates
+                const randomIndex = Math.floor(getSeededRandom(seed) * availableNames.length);
+                selected.push(availableNames[randomIndex]);
+                availableNames.splice(randomIndex, 1); // Remove chosen name to avoid duplicates
+                seed++;
             }
 
             return selected;
         }
         
         function updateNames() { // Function to update names and HTML content
-            const newNames = pickRandomNames();
-            lastSelectedNames = newNames;
-            localStorage.setItem('lastSelectedNames', JSON.stringify(newNames)); // Store last selected names in localStorage
-            document.getElementById("names-container").textContent = `Current Triagers: ${newNames.join(" and ")}`;
-        }
-        
-        function scheduleNextUpdate() {  // Function to calculate the time to the next sprint and schedule updates
             const now = new Date();
             const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((now - startDate) / millisecondsInAWeek);
             const iterationsSinceArbitraryFirstDemoOfIteration = Math.floor(weeksSinceArbitraryFirstDemoOfIteration / weeksInAnIteration);
@@ -51,14 +48,13 @@
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
 
-            if (sprintOfIteration != currentIteration) // Checks if we are in a new Sprint
-            {
-            currentIteration = sprintOfIteration;
-            localStorage.setItem('currentIteration', JSON.stringify(currentIteration)); // Store current iteration in localStorage
+            const seed = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration + sprintOfIteration;
+            const newNames = pickRandomNames(seed);
+            document.getElementById("names-container").textContent = `Current Triagers: ${newNames.join(" and ")}`;
+        }
+        
+        function scheduleNextUpdate() {  // Function to calculate the time to the next sprint and schedule updates
             updateNames();
-            } else {
-            document.getElementById("names-container").textContent = `Current Triagers: ${lastSelectedNames.join(" and ")}`;
-            }
         }
  
         function DetermineDemoerGivenDate(date){
