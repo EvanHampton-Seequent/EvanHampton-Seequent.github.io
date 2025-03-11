@@ -15,17 +15,50 @@
 
     <script type="text/javascript">
         'use strict';
-
         const millisecondsInAWeek = 7 * 24 * 60 * 60 * 1000;
         const weeksInAnIteration = 13;
         const sprintsInAnIteration = 6;
-        
-        function DetermineTriagerGivenDate(date){
-            const arbitraryMondayAtMidnight = new Date('Novemember 6, 2023 00:00:00');
-            const weeksSinceArbitraryMonday = Math.floor((date - arbitraryMondayAtMidnight) / millisecondsInAWeek);
+        let lastSelectedNames = JSON.parse(localStorage.getItem('lastSelectedNames')) || []; // Retrieve last selected names from localStorage
+        let currentIteration = JSON.parse(localStorage.getItem('currentIteration')) || 0;
+        const startDate = new Date("2024-09-16T13:00:00"); // T1 Start Date
+        const names = ["Kameel", "Mark", "Jesse", "Michael", "Vlad"/*, "Ken"*/];
 
-            const triagers = ["KK", "VC", "JaM", "CC", "KD", "MS", "JeM", "MC"];
-            return triagers[weeksSinceArbitraryMonday % triagers.length];
+        function pickRandomNames() { // Function to pick 2 random names excluding the last selected ones
+            let availableNames = names.filter(name => !lastSelectedNames.includes(name));
+            let selected = [];
+
+            while (selected.length < 2) {
+            const randomIndex = Math.floor(Math.random() * availableNames.length);
+            selected.push(availableNames[randomIndex]);
+            availableNames.splice(randomIndex, 1); // Remove chosen name to avoid duplicates
+            }
+
+            return selected;
+        }
+        
+        function updateNames() { // Function to update names and HTML content
+            const newNames = pickRandomNames();
+            lastSelectedNames = newNames;
+            localStorage.setItem('lastSelectedNames', JSON.stringify(newNames)); // Store last selected names in localStorage
+            document.getElementById("names-container").textContent = `Current Triagers: ${newNames.join(" and ")}`;
+        }
+        
+        function scheduleNextUpdate() {  // Function to calculate the time to the next sprint and schedule updates
+            const now = new Date();
+            const weeksSinceArbitraryFirstDemoOfIteration = Math.floor((now - startDate) / millisecondsInAWeek);
+            const iterationsSinceArbitraryFirstDemoOfIteration = Math.floor(weeksSinceArbitraryFirstDemoOfIteration / weeksInAnIteration);
+            const sprintsSinceArbitraryFirstDemoOfIteration = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration;
+            const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
+            const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
+
+            if (sprintOfIteration != currentIteration) // Checks if we are in a new Sprint
+            {
+            currentIteration = sprintOfIteration;
+            localStorage.setItem('currentIteration', JSON.stringify(currentIteration)); // Store current iteration in localStorage
+            updateNames();
+            } else {
+            document.getElementById("names-container").textContent = `Current Triagers: ${lastSelectedNames.join(" and ")}`;
+            }
         }
  
         function DetermineDemoerGivenDate(date){
@@ -37,12 +70,15 @@
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
             
-            const demoers = ["CC", "KD", "MS", "JeM", "KK", "VC"]
+            const demoers = ["JeM", "KK", "VC", "CC", "KD", "MS"]
             return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
         }
 
+        $(document).ready(() => {
+            scheduleNextUpdate();
+        });
+        
         $(() => { // "main"
-            $(`#${DetermineTriagerGivenDate(Date.now())}_build`).css("color", "red");
             $(`#${DetermineDemoerGivenDate(Date.now())}_demo`).css("color", "red");
         });
     </script>
@@ -61,6 +97,11 @@
             align-content: center;
             text-align: center;
         }
+        .names-container {
+			margin: 5px;
+			font-size: 24px;
+			font-weight: bold;
+		}
     </style>
 </head>
 <body>
@@ -78,7 +119,9 @@
             <h1>Build Duty</h1>
         </div>
         <div class="row justify-content-center">
-            <h5><span id="JaM_build">JaM</span>  <span id="CC_build">CC</span> <span id="KD_build">KD</span> <span id="MS_build">MS</span> <span id="JeM_build">JeM</span>  <span id="MC_build">MC</span> <span id="KK_build">KK</span> <span id="VC_build">VC</span></h5>
+            <div class="names-container" id="names-container">
+                Loading...
+            </div>
         </div>
     </div>
     </content>
