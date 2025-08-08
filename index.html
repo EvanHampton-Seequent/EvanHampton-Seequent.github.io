@@ -65,8 +65,8 @@
             const sprintsSinceArbitraryFirstDemoOfIteration = iterationsSinceArbitraryFirstDemoOfIteration * sprintsInAnIteration;
             const weekOfIteration = weeksSinceArbitraryFirstDemoOfIteration % weeksInAnIteration;
             const sprintOfIteration = weekOfIteration === 12 ? 5 : Math.floor(weekOfIteration / 2);
-            
-            const demoers = ["JeM", "KK", "VC", "AZ", "CC", "KD", "MS"]
+
+            const demoers = ["KK", "VC", "AZ", "KD", "MS", "JeM"]
             return demoers[(sprintsSinceArbitraryFirstDemoOfIteration + sprintOfIteration) % demoers.length];
         }
 
@@ -107,7 +107,7 @@
             <h1>Demo Duty</h1>
         </div>
         <div class="row justify-content-center">
-            <h5> <span id="CC_demo">CC</span> <span id="KD_demo">KD</span> <span id="MS_demo">MS</span> <span id="JeM_demo">JeM</span> <span id="KK_demo">KK</span> <span id="VC_demo">VC</span> <span id="AZ_demo">AZ</span> </h5>
+            <h5> <span id="KD_demo">KD</span> <span id="MS_demo">MS</span> <span id="JeM_demo">JeM</span> <span id="KK_demo">KK</span> <span id="VC_demo">VC</span> <span id="AZ_demo">AZ</span> </h5>
         </div>
     </div>
   <div class="container-fluid">
